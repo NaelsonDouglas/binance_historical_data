@@ -14,7 +14,7 @@ logging.basicConfig(filename='log.log',
                     level=logging.INFO,
                     datefmt='%Y-%m-%d %H:%M:%S')
 
-tick_time = 60 #seconds
+tick_time = 60*5 #seconds
 timestamp = datetime.datetime.now().timestamp()
 timestamp = datetime.datetime.fromtimestamp(timestamp).isoformat()
 
@@ -68,6 +68,7 @@ while True:
 
     logging.info('Syncing on Git')
     subprocess.run("git add ../dumps/*",shell=True)
+    subprocess.run("git pull",shell=True) #This pull will be useful when we have more than one server runing
     subprocess.run("git commit -m "+'"'+timestamp+'"',shell=True)
     subprocess.run("git push",shell=True)
     logging.info('Commit '+timestamp+' pushed to git')
