@@ -68,10 +68,10 @@ while True:
             f.close()
 
     logging.info('Syncing on Git')
-    subprocess.run("git add ../dumps/*",shell=True)
-    subprocess.run("git pull",shell=True) #This pull will be useful when we have more than one server runing
-    subprocess.run("git commit -m "+'"'+timestamp+'"',shell=True)
-    subprocess.run("git push",shell=True)
+    subprocess.call("git add ../dumps/*",shell=True)
+    subprocess.call("git pull",shell=True) #This pull will be useful when we have more than one server runing
+    subprocess.call("git commit -m "+'"'+timestamp+'"',shell=True)
+    subprocess.call("git push",shell=True)
     logging.info('Commit '+timestamp+' pushed to git')
   
     logging.info('Sleeping for '+str(tick_time/60)+' minute(s)')
