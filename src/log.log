@@ -6,3 +6,8 @@
 2019-07-01 04:27:31 INFO     Commit 2019-07-01T04:24:24.018357 pushed to git
 2019-07-01 04:27:31 INFO     Sleeping for 5.0 minute(s)
 2019-07-01 04:27:31 INFO     Sleeping for300 seconds
+2019-07-01 03:29:47 WARNING  No matching "price" pair on the allBookTirckers endpoint. GTOPAX. Using the -1 flag instead
+2019-07-01 03:29:47 WARNING  No matching "price" pair on the allBookTirckers endpoint. GTOTUSD. Using the -1 flag instead
+2019-07-01 03:29:47 WARNING  No matching "price" pair on the allBookTirckers endpoint. GTOUSDC. Using the -1 flag instead
+2019-07-01 03:29:47 WARNING  No matching "price" pair on the allBookTirckers endpoint. GTOUSDT. Using the -1 flag instead
+2019-07-01 03:29:56 INFO     Syncing on Git
