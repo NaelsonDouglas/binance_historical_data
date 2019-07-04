@@ -15,7 +15,7 @@ logging.basicConfig(filename='log.log',
 
 tick_time = 5*60 #seconds
 
-
+counter = 0
 while True:
 
     timestamp = datetime.datetime.now().timestamp()
@@ -66,14 +66,17 @@ while True:
             f = open(file_path,mode)
             f.write(line.to_csv(index=False,header=use_header))
             f.close()
-
-    logging.info('Syncing on Git')
-    subprocess.call("git add ../dumps/*",shell=True)
-    subprocess.call("git pull",shell=True) #This pull will be useful when we have more than one server runing
-    subprocess.call("git commit -m "+'"'+timestamp+'"',shell=True)
-    subprocess.call("git push",shell=True)
-    logging.info('Commit '+timestamp+' pushed to git')
-  
+    counter = counter+1
+    logging.info('Counter increased to: '+counter)
+    if counter == 100:
+        counter = 0
+        logging.info('Syncing on Git')
+        subprocess.call("git add ../dumps/*",shell=True)
+        subprocess.call("git pull",shell=True) #This pull will be useful when we have more than one server runing
+        subprocess.call("git commit -m "+'"'+timestamp+'"',shell=True)
+        subprocess.call("git push",shell=True)
+        logging.info('Commit '+timestamp+' pushed to git')
+            
     logging.info('Sleeping for '+str(tick_time/60)+' minute(s)')
     timestamp_now = datetime.datetime.now().timestamp()
     timestamp_now = datetime.datetime.fromtimestamp(timestamp_now).isoformat()   
