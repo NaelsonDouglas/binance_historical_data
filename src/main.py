@@ -67,7 +67,7 @@ while True:
             f.write(line.to_csv(index=False,header=use_header))
             f.close()
     counter = counter+1
-    logging.info('Counter increased to: '+counter)
+    logging.info('Counter increased to: '+str(counter))
     if counter == 100:
         counter = 0
         logging.info('Syncing on Git')
